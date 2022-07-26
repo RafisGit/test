@@ -17,7 +17,7 @@ public class JavaApplication13 {
         for(i=0; i<100; i++){
             b[i][0] = i+1;
             b[i][1] = 0;
-            }
+          }
         while(true){
             a = in.nextInt();
             if(a==0) break;
@@ -25,12 +25,6 @@ public class JavaApplication13 {
                 if(a==b[j][0]) {b[j][1]++; break;}  
             }
         }
-        
-        
-//        for (i = 0; i < 100; i++) {
-//            if (a==0) break;
-//            
-//        }
         for(i=0; i<100; i++){
             if(b[i][1]==0) continue;
             if(b[i][1]==1) System.out.println(b[i][0]+" occurs "+ b[i][1] +" time ");
