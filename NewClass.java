@@ -1,30 +1,46 @@
 
-package test1;
+package Shawon;
 
-public class NewClass {
-    public static void main(String[] args){
-        String name="Rafi Haque";
-        String lower=name.toLowerCase();
-        System.out.println("lowercase= "+lower);
-        String replace=name.replace(" ", "_");
-        System.out.println("Replace= "+replace);
-        String sentence="Dear name.thanks a lot";
-        String replace1=sentence.replace("name", "Rafi");
-        System.out.println("Replace1= "+replace1);
-        
-        String DTtest="Rafi   Haque  Rider";
-   
-         boolean tripletest= DTtest.contains("   ");
-         System.out.println("The string contain triple space "+tripletest);
-         
-         boolean doubletest=DTtest.contains("  ");
-         System.out.println("The string contain double space "+doubletest);
-         
-         
-         System.out.println(" “Dear\tHarry,\tThis\tJava\tCourse\tis\tnice.\tThanks”");
-        
-        
-        
+import java.util.Scanner;
+
+public class AccountHolder {
+
+    static void checkAmount(double a) throws NegativeAmountException{
+        if(a<0) throw new NegativeAmountException(a);
     }
-    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double amount;
+        System.out.println("What do you want to do: \n1. Deposit\n2. Withdraw\nEnter your choice(1/2): ");
+        int a = sc.nextInt();
+        if(a==1) {
+            System.out.print("Enter your deposit amount: ");
+            amount = sc.nextDouble();
+        }
+        else {
+            System.out.printf("Enter your withdraw amount: ");
+            amount = sc.nextDouble();
+        }
+
+        try{
+            checkAmount(amount);
+            System.out.print("Your Transaction is successful!");
+        }
+        catch (Exception e){
+            System.out.print(e);
+        }
+
+    }
+}package Shawon;
+
+public class NegativeAmountException extends Exception{
+    private double amount;
+    public NegativeAmountException(double amount){
+        this.amount = amount;
+    }
+
+    public String toString(){
+        return "NegativeAmountException: "+amount;
+    }
 }
